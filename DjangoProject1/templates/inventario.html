@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Medicamentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 20px;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #FFDE21; /* Amarillo */
+        }
+        .medicamento-container {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .medicamento-header {
+            background-color: #FFDE21; /* Amarillo */
+            color: black;
+            padding: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .estado-disponible {
+            color: green;
+            font-weight: bold;
+        }
+        .estado-no-disponible {
+            color: red;
+            font-weight: bold;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            width: 50%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .search-button {
+            padding: 8px 15px;
+            font-size: 14px;
+            margin-left: 10px;
+            background-color: #FFDE21; /* Amarillo */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #FFD700; /* Un amarillo más brillante cuando se pasa el ratón */
+        }
+    </style>
+</head>
+<body>
+
+{% include 'menu.html' %}
+
+<h2>Inventario de Medicamentos</h2>
+
+<hr style="margin: 40px 0; border: 1px solid #ddd;">
+
+<!-- Barra de búsqueda con botón -->
+<div class="search-container">
+    <input type="text" class="search-bar" id="searchInput" placeholder="Buscar medicamento...">
+    <button class="search-button" onclick="filterInventario()">Buscar</button>
+</div>
+
+{% for inventario in inventarios %}
+<div class="medicamento-container" data-nombre="{{ inventario.medicamento.nombre | lower }}">
+    <div class="medicamento-header">
+        <h3>{{ inventario.medicamento.nombre }}</h3>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Cantidad</th>
+                <th>Código</th>
+                <th>Dosis</th>
+                <th>Precio Unitario</th>
+                <th>Categoría</th>
+                <th>Proveedor</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ inventario.cantidad }}</td>
+                <td>{{ inventario.medicamento.codigo }}</td>
+                <td>{{ inventario.medicamento.dosis }}</td>
+                <td>{{ inventario.medicamento.precioIndividual }}</td>
+                <td>{{ inventario.medicamento.categoria }}</td>
+                <td>{{ inventario.medicamento.provedor }}</td>
+                <td>
+                    {% if inventario.cantidad > 0 %}
+                        <span class="estado-disponible">Disponible</span>
+                        <a href="/facturas/">solicitar</a>
+                    {% else %}
+                        <span class="estado-no-disponible">No Disponible</span>
+                        <a href="/medicamentos/">solicitar</a>
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endfor %}
+
+<script>
+    function filterInventario() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const inventarios = document.querySelectorAll('.medicamento-container');
+
+        inventarios.forEach(function(inventario) {
+            const nombre = inventario.getAttribute('data-nombre');
+            if (nombre.includes(searchInput)) {
+                inventario.style.display = 'block';
+            } else {
+                inventario.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

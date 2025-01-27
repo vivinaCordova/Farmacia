@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicamentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 20px;
+            padding: 20px;
+        }
+        h2, h3 {
+            text-align: center;
+            color: #FFDE21; /* Amarillo */
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            width: 50%;  /* Reducido el ancho de la barra de búsqueda */
+            padding: 8px;  /* Reducido el padding */
+            font-size: 14px;  /* Reducido el tamaño de la fuente */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .search-button {
+            padding: 8px 15px;  /* Reducido el padding del botón */
+            font-size: 14px;  /* Reducido el tamaño de la fuente */
+            margin-left: 10px;
+            background-color: #FFDE21; /* Amarillo */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #FFD700; /* Un amarillo más brillante cuando se pasa el ratón */
+        }
+        .medicamento-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;  /* Reducido el espacio entre los cuadros */
+        }
+        .medicamento {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 8px;  /* Reducido el padding */
+            border: 1px solid #ddd;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;  /* Reducido el ancho de los cuadros */
+            margin: 0 auto;
+        }
+        .medicamento-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;  /* Reducido el espacio entre los textos */
+        }
+        .descripcion {
+            width: 100%;
+            margin-top: 8px;
+            padding: 8px;  /* Reducido el padding */
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .solicitar-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 8px 15px;  /* Reducido el padding */
+            background-color: #FFDE21; /* Amarillo */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .solicitar-btn:hover {
+            background-color: #FFD700; /* Un amarillo más brillante cuando se pasa el ratón */
+        }
+    </style>
+</head>
+<body>
+
+{% include 'menu.html' %}
+<h2>MEDICAMENTOS</h2>
+<h3>Lista de Medicamentos</h3>
+
+<!-- Barra de búsqueda con botón -->
+<div class="search-container">
+    <input type="text" class="search-bar" id="searchInput" placeholder="Buscar medicamento...">
+    <button class="search-button" onclick="filterMedicamentos()">Buscar</button>
+</div>
+
+<div class="medicamento-container" id="medicamentoList">
+    {% for medicamento in medicamentos %}
+        <div class="medicamento" data-nombre="{{ medicamento.nombre | lower }}">
+            <div class="medicamento-info">
+                <span><strong>Nombre:</strong> {{ medicamento.nombre }}</span>
+                <span><strong>Dosis:</strong> {{ medicamento.dosis }}</span>
+                <span><strong>Precio:</strong> {{ medicamento.precioIndividual }}</span>
+            </div>
+            <div class="descripcion">
+                <strong>Descripción:</strong>
+                <p>{{ medicamento.descripcion }}</p>
+            </div>
+            <!-- Botón para solicitar el medicamento dentro de un formulario -->
+            <form action="{% url 'sucursales' %}" method="get">
+                <input type="hidden" name="medicamento_id" value="{{ medicamento.id }}">
+                <button type="submit" class="solicitar-btn">Solicitar</button>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    function filterMedicamentos() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const medicamentos = document.querySelectorAll('.medicamento');
+
+        medicamentos.forEach(function(medicamento) {
+            const nombre = medicamento.getAttribute('data-nombre');
+            if (nombre.includes(searchInput)) {
+                medicamento.style.display = 'block';
+            } else {
+                medicamento.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
+
