@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #FFDE21; /* Amarillo */
+            margin-bottom: 20px;
+        }
+        .factura-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .factura-table th, .factura-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .factura-table th {
+            background-color: #FFDE21;
+            color: white;
+        }
+        .factura-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .factura-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .form-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .form-container form {
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container form input, .form-container form select, .form-container form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-container form button {
+            background-color: #FFDE21;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-container form button:hover {
+            background-color: #d4b600;
+        }
+    </style>
+</head>
+<body>
+    {% include "menu.html" %}
+
+    <div class="container">
+        <!-- Título -->
+        <h2>FACTURAS</h2>
+
+<div class="form-container">
+            <h2>Crear Nueva Factura</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Generar Factura</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

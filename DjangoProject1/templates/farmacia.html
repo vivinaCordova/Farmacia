@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia</title>
+    <style>
+
+        button {
+            background-color: #FFDE21;
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 20px 0;
+            border-radius: 8px;
+            width: 250px;
+            display: block;
+            text-align: center;
+        }
+
+
+        button:hover {
+            background-color: #FFD700;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>FARMACIAS</h2>
+    <h1>CUXIBAMBA</h1>
+
+    {% include "menu.html" %}
+</header>
+
+
+<form action="/inventario/" method="get">
+    <button type="submit">Revisar Inventario</button>
+</form>
+<form action="/medicamentos/" method="get">
+    <button type="submit">Medicamentos</button>
+</form>
+<form action="/sucursales/" method="get">
+    <button type="submit">Sucursales</button>
+</form>
+
+</body>
+</html>

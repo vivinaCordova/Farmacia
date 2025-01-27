@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario por Sucursal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            margin: 20px;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #FFDE21; /* Amarillo */
+        }
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        thead tr {
+            background-color: #FFDE21; /* Amarillo */
+            color: black;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .estado-disponible {
+            color: green;
+            font-weight: bold;
+        }
+        .estado-no-disponible {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'menu.html' %}
+
+<div class="content">
+    <h2>Inventario por Sucursales</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Dirección</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sucursal in sucursales %}
+                {% for inventario in sucursales %}
+                <tr>
+                    <td>{{ sucursal.numero }}</td>
+                    <td>{{ sucursal.direccion }}</td>
+                    <td>
+                        <span class="estado-disponible">Disponible</span>
+                        <a href="/facturas/">Selecionar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+
