@@ -1,6 +1,6 @@
 # Farmacia
 ## Diagrama de clases
-![Image](https://github.com/user-attachments/assets/58073a6d-5d38-4897-a03e-d2119cbfdfb5)
+![Image](https://github.com/user-attachments/assets/d925f879-0ef3-454f-9d91-dec64f82335a)
 
 ## Interface 
 ![Image](https://github.com/user-attachments/assets/616e3d18-7d7d-4cd7-ad3d-0775ba6b5a38)
