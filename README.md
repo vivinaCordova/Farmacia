@@ -13,7 +13,8 @@
 ![Image](https://github.com/user-attachments/assets/b4411e96-5e6f-4bea-ae73-26167d502c30)
 
 ### Interaciones de administrados con inventario 
-![Image](https://github.com/user-attachments/assets/ef326eaa-6242-481d-82c0-afa1734698e0)
+en  base a que si el producto esta disponible la pagina se rederijira a factura, si por el contrario e producto no esta diponible, se redijira a transferencia 
+![Image](https://github.com/user-attachments/assets/c98ab22f-f19c-4431-b592-3d92ec820e9a)
 
 ### Medicamento 
 ![Image](https://github.com/user-attachments/assets/b5d705ff-8653-4464-8135-88acbdcc3280)
