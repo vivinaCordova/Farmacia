@@ -1,10 +1,11 @@
 # Farmacia
 ## Diagrama de clases
-![Image](https://github.com/user-attachments/assets/d925f879-0ef3-454f-9d91-dec64f82335a)
+![Image](https://github.com/user-attachments/assets/563e0d57-66f6-4dbd-a288-1bd7145cde9e)
 
 ## Interface 
 ### Pagina principal 
-![Image](https://github.com/user-attachments/assets/616e3d18-7d7d-4cd7-ad3d-0775ba6b5a38)
+![Image](https://github.com/user-attachments/assets/c310d15a-27c0-4bbb-b9e9-64d7c67dd710)
+![Image](https://github.com/user-attachments/assets/319f7c6c-d921-47ec-bdfb-d9fc9793116d)
 
 ### Ingreso de usuario
 ![Image](https://github.com/user-attachments/assets/60085f7e-1378-414b-b16e-5ed654baad4f)
@@ -13,7 +14,8 @@
 ![Image](https://github.com/user-attachments/assets/b4411e96-5e6f-4bea-ae73-26167d502c30)
 
 ### Interaciones de administrados con inventario 
-![Image](https://github.com/user-attachments/assets/ef326eaa-6242-481d-82c0-afa1734698e0)
+en  base a que si el producto esta disponible la pagina se rederijira a factura, si por el contrario e producto no esta diponible, se redijira a transferencia 
+![Image](https://github.com/user-attachments/assets/c98ab22f-f19c-4431-b592-3d92ec820e9a)
 
 ### Medicamento 
 ![Image](https://github.com/user-attachments/assets/b5d705ff-8653-4464-8135-88acbdcc3280)
