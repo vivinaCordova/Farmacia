@@ -4,7 +4,8 @@
 
 ## Interface 
 ### Pagina principal 
-![Image](https://github.com/user-attachments/assets/616e3d18-7d7d-4cd7-ad3d-0775ba6b5a38)
+![Image](https://github.com/user-attachments/assets/c310d15a-27c0-4bbb-b9e9-64d7c67dd710)
+![Image](https://github.com/user-attachments/assets/319f7c6c-d921-47ec-bdfb-d9fc9793116d)
 
 ### Ingreso de usuario
 ![Image](https://github.com/user-attachments/assets/60085f7e-1378-414b-b16e-5ed654baad4f)
