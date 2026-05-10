@@ -26,3 +26,5 @@
 
 ### Crear nueva factura
 ![Image](https://github.com/user-attachments/assets/8003dc62-c642-4db9-a293-f01d4d2cad01)
+
+![prototipo](https://github.com/user-attachments/assets/0bb237ba-d753-48b5-95c8-c9bbafc7f869)
